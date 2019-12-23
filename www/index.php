@@ -1,9 +1,21 @@
+<?php
+  function brutalTitle($numberFile = "number.txt") {
+    $number = '';
+    if (!is_file($numberFile)) {
+      file_put_contents($numberFile, 0);
+      $number = 0;
+    }
+    $number = file_get_contents($numberFile);
+    return $number;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
   <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Brutal for Landon</title>
+<title>BFL Counter: <?=brutalTitle()?></title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -68,7 +80,15 @@
           }
         });
 
-        $('button').click(function(){
+        $('button.show-confirm').click(function() {
+          $('body').addClass('confirm-is-active');
+        });
+
+        $('button.hide-confirm').click(function() {
+          $('body').removeClass('confirm-is-active');
+        });
+
+        $('button.trigger-brutal').click(function(){
           $.ajax({
             type: 'POST',
             url: 'counter.php',
@@ -87,33 +107,45 @@
     <div class="viewport">
       <div class="plane">
         <div class='banner-wrap'>
-          <div class='banner'></div>
         </div>
 
-        <div class="panel">
+        <div class="main">
+          <div class="content">
 
-          <h2>It has been</h2>
-          <h1>
-            <div>
-            <span id='days'></span> days
-            </div>
-            <div>
-            <span id='hours'></span> hours
-            </div>
-            <div>
-            <span id='minutes'></span> minutes
-            </div>
-            <div>
-            <span id='seconds'></span> seconds
-            </div>
-          </h1>
-          <h2>Since the last Brutal For Landon.</h2>
+            <h2>It has been</h2>
+            <h1>
+              <div>
+              <span id='days'></span> days
+              </div>
+              <div>
+              <span id='hours'></span> hours
+              </div>
+              <div>
+              <span id='minutes'></span> minutes
+              </div>
+              <div>
+              <span id='seconds'></span> seconds
+              </div>
+            </h1>
+            <h2 class='type-scale-2'>Since the last <span class='text-grey-5'>Brutal For Landon</span>.</h2>
 
-          <div class='text-center'>
-            <button value='increment'>Tap if Landon is brutal</button>
           </div>
+          <div class='actions'>
+            <h2 class='type-scale-2'>Landon has been brutal <span class='type-scale-2' id='times'></span> times.</h2>
 
-          <h2>Landon has been brutal <span id='times'></span> times.</h2>
+            <div class='text-center'>
+              <button class='button-white show-confirm'>Landon is being brutal</button>
+            </div>
+
+            <div class='action-confirm'>
+              <h2 class='type-scale-2'>Are you sure?</h2>
+
+              <div class='button-row text-center'>
+                <button class='button-grey-2 hide-confirm'>No, he's ok</button>
+                <button class='button-primary trigger-brutal hide-confirm' value='increment'>Yes, BFL</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

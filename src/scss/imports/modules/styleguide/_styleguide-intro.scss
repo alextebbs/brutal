@@ -1,13 +1,42 @@
 body {
   background: #000;
+  color: #555;
 }
 
-.panel {
+.plane {
+  height: 100vh;
+  max-width: 420px;
   margin: 0px auto;
-  margin-top: bl(1);
-  max-width: 368px;
-  padding-left: 24px;
-  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: white(0.0);
+
+  .banner-wrap {
+    padding-top: 50%;
+    background: #444;
+    background-image: url(/assets/img/landon.jpg);
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .main {
+    flex-grow: 1;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    padding-top: bl(1);
+    padding-bottom: bl(1);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   h1 {
     display: flex;
@@ -43,16 +72,6 @@ body {
     }
   }
 
-  h2 {
-    text-align: center;
-    margin-top: bl(0.5);
-
-    span {
-      font-weight: bold;
-      color: #fff;
-    }
-  }
-
   p {
     font-size: bl(0.8);
     line-height: bl(1.2);
@@ -64,25 +83,55 @@ body {
     // word-break: break-all;
   }
 
+}
+
+h2 {
+  text-align: center;
+  margin-top: bl(0.5);
+}
+
+.actions {
+  padding: bl(1);
+  position: relative;
+
+  h2 {
+    span {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .action-confirm {
+    padding: bl(1);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    transform: translateY(100%);
+    transition: all 0.2s;
+    background: #222;
+
+    .confirm-is-active & {
+      transform: translateY(0px);
+    }
+  }
+
+  h2 {
+    margin-top: 0px;
+    margin-bottom: bl(0.75);
+  }
+
   button {
-    margin: 0px auto;
-    margin-top: bl(1.5);
-    border-radius: 3px;
-    background: #fff;
-    color: #000;
-    margin-bottom: bl(1.5);
+    border-radius: 5px;
+
+    &.button-white {
+      color: #000;
+    }
+
+    &.is-ghost {
+      color: #888;
+    }
   }
 }
 
-.banner-wrap {
-  max-width: 420px;
-  margin: 0px auto;
-}
-
-.banner {
-  padding-top: 50%;
-  background: #444;
-  background-image: url(/assets/img/landon.jpg);
-  background-size: cover;
-  background-position: center center;
-}
