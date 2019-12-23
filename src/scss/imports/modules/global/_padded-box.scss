@@ -1,0 +1,47 @@
+.padded-box {
+  padding: bl(1);
+  margin-bottom: 24px;
+
+  @if ($border-radius != 0px) {
+    border-radius: $border-radius;
+  }
+
+  &.less-padding {
+    padding: bl(0.5);
+  }
+
+  @each $name, $color in $merged-color-map {
+    &.padded-box-#{$name} {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $grey in $default-grey-palette {
+    &.padded-box-grey-#{$name} {
+      background-color: $grey;
+    }
+  }
+
+  &:last-child,
+  p:last-child {
+    margin-bottom: 0px;
+  }
+
+  &.has-border {
+    border: 1px solid;
+
+    @each $name, $color in $merged-color-map {
+      &.padded-box-#{$name} {
+        background-color: rgba($color, 0.05);
+        border-color: $color;
+      }
+    }
+
+    @each $name, $grey in $default-grey-palette {
+      &.padded-box-grey-#{$name} {
+        background-color: rgba($grey, 0.05);
+        border-color: $grey;
+      }
+    }
+  }
+}

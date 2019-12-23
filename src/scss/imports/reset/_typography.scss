@@ -1,0 +1,261 @@
+// This file provides groudwork for well organized typography. By default,
+// text is "unstyled" without the proper container, meaning that all headers
+// and lists are reset to appear as normal block level elements.
+
+:root, body, html, #{$all-text-elements} {
+  line-height: $baseline;
+  font-size: $font-size;
+  font-family: $base-font-stack;
+  font-weight: 400;
+}
+
+:root, body, html {
+  color: grey(2);
+}
+
+::selection {
+  background: rgba(c('primary'), 0.4);
+}
+
+.theme-dark {
+  #{$all-text-elements} {
+    color: white(1);
+  }
+}
+
+// No styling on text elements unless within a container with typography
+#{$all-text-elements} {
+  margin: 0px;
+  padding: 0px;
+}
+
+// No styling on lists unless within a container with typography
+#{$all-list-elements} {
+  list-style: none;
+}
+
+// Helper Classes
+@for $i from 0 through 9 {
+  .type-scale-#{$i} {
+    @extend %type-scale-#{$i};
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-small {
+  @extend %type-scale-0;
+}
+
+.text-large {
+  @extend %type-scale-2;
+}
+
+@each $name, $color in $merged-color-map {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $grey in $default-grey-palette {
+  .text-grey-#{$name} {
+    color: $grey;
+  }
+}
+
+// Apply this mixin when needed for properly styled blocks of rich text
+@mixin typography {
+  // Give body text a default bottom margin.
+  #{$all-body-text-elements},
+  #{$all-list-elements},
+  img {
+    &:not(:last-child) {
+      margin-bottom: $bl;
+    }
+  }
+
+  a {
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom: 2px solid;
+    }
+  }
+
+  mark {
+    background: c("highlight");
+    padding-left: bl(0.125);
+    padding-right: bl(0.125);
+  }
+
+  code, samp, kbd {
+    font-size: 0.9em;
+    line-height: bl(0.9);
+    font-family: $monospace-font-stack;
+  }
+
+  code, kbd {
+    font-size: 0.9em;
+    background: grey(8);
+    padding-left: bl(0.125);
+    padding-right: bl(0.125);
+    color: grey(3);
+  }
+
+  kbd {
+    background: grey(2);
+    color: grey(9);
+  }
+
+  del, s {
+    text-decoration: none;
+    position: relative;
+
+    &:after {
+      content: "";
+      height: 1px;
+      background: grey(1);
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 50%;
+
+      .theme-dark & {
+        background: grey(8);
+      }
+    }
+  }
+
+  del {
+    color: c("error");
+
+    &:after {
+      background: c("error");
+
+      .theme-dark & {
+        background: c("error");
+      }
+    }
+  }
+
+  ins {
+    color: c("success");
+  }
+
+  ins, u {
+    border-bottom: 1px solid;
+    text-decoration: none;
+  }
+
+  abbr {
+    border-bottom: 1px dotted;
+  }
+
+  ul, ol {
+    padding-left: $bl;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    margin-bottom: calc(#{bl(2)} - 1px);
+    margin-top: bl(2);
+    position: relative;
+    background: black(0.2);
+
+    .theme-dark & {
+      background: white(0.5);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: bl(1);
+
+    caption {
+      text-align: left;
+
+      @extend %heading-4;
+    }
+
+    thead {
+      td, th {
+        text-align: left;
+        font-weight: normal;
+        font-size: $font-size * 0.8;
+      }
+    }
+
+    td, th {
+      border-bottom: 1px solid black(0.4);
+      padding-bottom: calc(#{bl(0.25)} - 1px);
+      padding-top: bl(0.25);
+      text-align: left;
+      vertical-align: top;
+
+      .theme-dark & {
+        border-bottom: 1px solid white(0.2);
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  blockquote {
+    padding-left: bl(2);
+    position: relative;
+
+    p {
+      font-size: $fs * 1.125;
+      line-height: $bl * 1;
+    }
+
+    &:before {
+      content: "“";
+      position: absolute;
+      top: 12px;
+      left: 8px;
+      font-size: bl(2);
+    }
+  }
+
+  @for $i from 1 through length($all-header-elements) {
+    h#{$i} {
+      @extend %heading-#{$i};
+    }
+  }
+}
+
+// Setup styles for rich text in config/typography
+.text-container {
+  @include typography;
+}

@@ -1,0 +1,52 @@
+.debug {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+
+  &:after {
+    content: "v('larger')";
+    position: absolute;
+    bottom: bl(1);
+    right: bl(1);
+    font-family: 'Inconsolata', monospace;
+    color: #000;
+    font-size: 13px;
+    padding: bl(0.25) bl(0.5);
+    background: rgba(#0f0, 0.4);
+    border: 1px solid #0f0;
+
+    @each $viewport, $value in $viewports {
+      @include below(v('#{$viewport}')) {
+        content: "v('#{$viewport}')";
+      }
+    }
+  }
+
+  .show-debug & {
+    display: block;
+  }
+
+  .block-inner {
+    height: 100%;
+  }
+
+  .column-row {
+    height: 100%;
+
+    .grid-column {
+      height: 100%;
+
+      .inner {
+        height: 100%;
+        border-left: 1px solid rgba(255,0,255,0.15);
+        border-right: 1px solid rgba(255,0,255,0.15);
+        background: rgba(255,0,255, 0.05);
+      }
+    }
+  }
+}

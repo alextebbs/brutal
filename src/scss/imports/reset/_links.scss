@@ -1,0 +1,16 @@
+a {
+  color: c("primary");
+  text-decoration: none;
+
+  &:hover {
+    color: darken(c("primary"), 10%);
+  }
+
+  .theme-dark & {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

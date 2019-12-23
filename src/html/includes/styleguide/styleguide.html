@@ -1,0 +1,1457 @@
+<nav role="navigation" class='styleguide-sidebar'>
+  <div class='styleguide-sidebar-head'>
+    <span>16&times;24</span>
+  </div>
+  <div class='styleguide-sidebar-nav'>
+    <ul>
+      <li><a class='is-active' href="#typography">Typography</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#viewports">Viewports</a></li>
+      <li><a href="#padding-and-margins">Padding/margin</a></li>
+      <li><a href="#columns">Columns</a></li>
+      <li><a href="#burger">Burger nav</a></li>
+      <li><a href="#modals">Modals</a></li>
+      <li><a href="#padded-box">Boxes</a></li>
+      <li><a href="#blocks">Blocks</a></li>
+    </ul>
+  </div>
+</nav>
+<header role="banner" class="block-wrap less-bottom-padding styleguide-header">
+  <div class="block-inner">
+    <div class="text-container">
+      <p>CSS framework documentation</p>
+    </div>
+  </div>
+</header>
+<main role="main">
+  <a name='typography'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Typography</h2>
+
+        <p>By default, headings and other text elements such as lists are not
+        styled.  To style blocks of rich text, wrap your content in a
+        <code>.text-container</code> or apply the <code>typography</code> mixin
+        to a wrapping element. Global changes to the style of default rich text
+        can be made in <code>config/typography</code>. This file also contains
+        two important Sass variables: <code>$font-size</code> and
+        <code>$baseline</code>, which cascade through the system in various
+        ways.</p>
+
+        <table class='styleguide-max-width'>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Sass variable</th>
+              <th>Current value</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Base font size</td>
+            <td><code>$font-size</code></td>
+            <td><code class='font-size'></code></td>
+          </tr>
+          <tr>
+            <td>Base leading</td>
+            <td><code>$baseline</code></td>
+            <td><code class='baseline'></code></td>
+          </tr>
+          <tr>
+            <td>Base font stack</td>
+            <td><code>$base-font-stack</code></td>
+            <td><code class='base-font-stack'></code></td>
+          </tr>
+          <tr>
+            <td>Alternate font stack</td>
+            <td><code>$alt-font-stack</code></td>
+            <td><code class='alt-font-stack'></code></td>
+          </tr>
+          <tr>
+            <td>Monospace font stack</td>
+            <td><code>$monospace-font-stack</code></td>
+            <td><code class='monospace-font-stack'></code></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class='styleguide-typography'>
+    <div class='column-row no-gutter'>
+      <div class='column one-half'>
+        <div class='block-wrap block-narrow more-padding'>
+          <div class='block-inner'>
+            <div class='text-container show-baseline-grid styleguide-max-width'>
+              @include('styleguide/kitchen-sink.html')
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='column one-half'>
+        <div class='block-wrap block-narrow more-padding block-black theme-dark'>
+          <div class='block-inner'>
+            <div class='text-container show-baseline-grid styleguide-max-width'>
+              @include('styleguide/kitchen-sink.html')
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class='text-container'>
+        <h2>Text utilities</h2>
+
+        <p>Some helper utilities are included for decorating and laying out text.</p>
+
+        <table class='styleguide-max-width'>
+          <thead>
+            <tr>
+              <th>CSS Class</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><code>.text-center</code></td>
+            <td>
+              <div class='text-center'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-right</code></td>
+            <td>
+              <div class='text-right'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-left</code></td>
+            <td>
+              <div class='text-left'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-uppercase</code></td>
+            <td>
+              <div class='text-uppercase'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-small</code></td>
+            <td>
+              <div class='text-small'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-large</code></td>
+            <td>
+              <div class='text-large'>Lorem ipsum dolor sit amet, consectetur. </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code>.text-$color</code></td>
+            <td>
+              <p><span class='text-primary'>Lorem ipsum dolor</span> <span class='text-secondary'>sit amet,</span> <span class='text-teal'>consectetur adipisicing</span> <span class='text-grey-6'>et nulla pariatur.</span> </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <a name='icons'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Icons</h2>
+
+        <p>By default, a set of icons from <a href="https://icofont.com">IcoFont</a> is included (there are more than shown here). Replace this with something else if you want. For more documentation on these icons, see <a href="https://icofont.com">here</a>, and refer to <code>reset/icons</code>.</p>
+      </div>
+
+      <div class='styleguide-icons'>
+        <div class='icon icon-close'></div>
+        <div class='icon icon-camera'></div>
+        <div class='icon icon-calendar'></div>
+        <div class='icon icon-simple-right'></div>
+        <div class='icon icon-simple-left'></div>
+        <div class='icon icon-star'></div>
+        <div class='icon icon-cloud'></div>
+        <div class='icon icon-page'></div>
+        <div class='icon icon-heart'></div>
+        <div class='icon icon-world'></div>
+        <div class='icon icon-play'></div>
+        <div class='icon icon-completed'></div>
+        <div class='icon icon-cancel'></div>
+      </div>
+    </div>
+  </section>
+  <a name='colors'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Colors</h2>
+        <p>A set of all available color palettes can be found in
+        <code>config/colors</code>, including grey palettes for warm, neutral, or
+        cool tones. The color system is meant to hold multiple possible color
+        palettes at a time, and switch between palettes by changing a variable,
+        which points to a color palette map. You can use as much or as little of this
+        system as you like, but if you are starting a new project, at a minimum,
+        you should make sure that in <code>config/colors</code> you have a
+        "primary" color set.</p>
+      </div>
+
+      <div class='text-container'>
+        <p>Here are the colors included in the current color palette.</p>
+      </div>
+
+      <div class="colors colored">
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+      </div>
+
+      <div class="text-container">
+        <p>Color names and values are then mapped to semantic labels. Here is the current set of mappings.</p>
+
+        <table class='styleguide-max-width'>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Sass lookup</th>
+              <th>Current value</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Primary color</td>
+            <td><code>c('primary')</code></td>
+            <td><code class='show-primary-color'></code></td>
+            <td class='bg-primary-color'></td>
+          </tr>
+          <tr>
+            <td>Secondary color</td>
+            <td><code>c('secondary)</code></td>
+            <td><code class='show-secondary-color'></code></td>
+            <td class='bg-secondary-color'></td>
+          </tr>
+          <tr>
+            <td>Error color</td>
+            <td><code>c('error')</code></td>
+            <td><code class='show-error-color'></code></td>
+            <td class='bg-error-color'></td>
+          </tr>
+          <tr>
+            <td>Warning color</td>
+            <td><code>c('warning')</code></td>
+            <td><code class='show-warning-color'></code></td>
+            <td class='bg-warning-color'></td>
+          </tr>
+          <tr>
+            <td>Success color</td>
+            <td><code>c('success')</code></td>
+            <td><code class='show-success-color'></code></td>
+            <td class='bg-success-color'></td>
+          </tr>
+          <tr>
+            <td>Highlight color</td>
+            <td><code>c('highlight')</code></td>
+            <td><code class='show-highlight-color'></code></td>
+            <td class='bg-highlight-color'></td>
+          </tr>
+        </table>
+
+        <p>Greys use the neutral grey palette by default, this can be changed in <code>config/colors</code>.
+      </div>
+
+      <div class="colors neutral-grey">
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+        <div class="swatch"></div>
+      </div>
+    </div>
+  </section>
+  <a name='buttons'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Buttons</h2>
+        <p>The following elements will all trigger button styles to be applied: <code>.button</code>, <code>input[type='submit']</code>, <code>input[type='button']</code>, <code>button</code>. Below are some examples of the different options available for buttons. A <code>.button-row</code> component is also available in <code>reset/forms</code> for composing rows of buttons.</p>
+      </div>
+
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button">a.button</a>
+            <button disabled>button[disabled]</button>
+            <button class='is-ghost'>button.is-ghost</button>
+            <button class='button-secondary'>button.button-secondary</button>
+            <button class='button-secondary is-ghost'>button.button-secondary.is-ghost</button>
+          </div>
+        </div>
+      </div>
+
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button small">a.button.small</a>
+            <button class="small is-ghost">button.small.is-ghost</button>
+          </div>
+        </div>
+      </div>
+
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button large">a.button.large</a>
+            <button class="large is-ghost">button.large.is-ghost</button>
+          </div>
+        </div>
+      </div>
+
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button larger">a.button.larger</a>
+            <button class="larger is-ghost">button.larger.is-ghost</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Buttons can also have icons.</p>
+      </div>
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button small has-icon">a.button.small.has-icon <span class='icon icon-check'></span></a>
+            <a href="#" class="button has-icon">a.button.has-icon <span class='icon icon-simple-right'></span></a>
+            <a href="#" class="button large has-icon">a.button.large.has-icon <span class='icon icon-close'></span></a>
+            <a href="#" class="button larger has-icon">a.button.larger.has-icon <span class='icon icon-heart'></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Buttons can use the bordered style.</p>
+      </div>
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button has-border">a.button.has-border</a>
+            <a href="#" class="button has-icon has-border">a.button.has-icon.has-border <span class='icon icon-close'></span></a>
+            <a href="#" disabled class="button has-border">a.button.has-border[disabled]</a>
+            <a href="#" class="button has-border button-secondary">a.button.has-border.button-secondary</a>
+            <a href="#" class="button has-border button-teal">a.button.has-border.button-teal</a>
+            <a href="#" class="button large has-border">a.button.large.has-border</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Buttons can have their color explicitly defined.</p>
+      </div>
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button button-red">a.button.button-red</a>
+            <a href="#" class="button button-blue">a.button.button-blue</a>
+            <a href="#" class="button button-teal">a.button.button-teal</a>
+            <a href="#" class="button button-grey-1">a.button.button-grey-1</a>
+            <a href="#" class="button button-grey-7">a.button.button-grey-7</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Or you can use the semantic color names.</p>
+      </div>
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button button-primary">a.button.button-primary</a>
+            <a href="#" class="button button-secondary">a.button.button-secondary</a>
+            <a href="#" class="button button-error">a.button.button-error</a>
+            <a href="#" class="button button-success">a.button.button-success</a>
+            <a href="#" class="button button-warning">a.button.button-warning</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Button classes can be combined in many different ways.</p>
+      </div>
+      <div class='column-row'>
+        <div class='column full'>
+          <div class='button-row'>
+            <a href="#" class="button is-ghost text-uppercase has-icon">Example MSFT-style CTA <span class='icon icon-simple-right'></span></a>
+          </div>
+        </div>
+      </div>
+      <div class='styleguide-note padded-box padded-box-grey-9 styleguide-max-width'>
+        <p class='text-small mb-0'><strong>On naming conventions</strong></p>
+        <p class='text-small'>Common-sense, readable naming conventions are preferred rather than clunky, BEM-like syntax. In these button examples, you will notice <code>.is-[]</code> or <code>.has-[]</code> are used as prefixes are used to indicate a class which modifies a base style.</p>
+      </div>
+    </div>
+  </section>
+  <a name='forms'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Forms</h2>
+        <p>Forms should be composed using the column system. <code>label</code> should wrap both the <code>input</code> and a <code>div.label</code>. This attempts to be a starting point, not a monolithic CSS framework for styling forms.</p>
+      </div>
+      <div class='column-row no-gutter'>
+        <div class='column one-half'>
+          <form class='styleguide-max-width styleguide-form' style='background: #fafafa;'>
+            @include('styleguide/form.html')
+          </form>
+        </div>
+        <div class='column one-half theme-dark'>
+          <form class='styleguide-max-width styleguide-form' style='background: #000;'>
+            @include('styleguide/form.html')
+          </form>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>Different styles of forms can be composed using the column system. You
+        can inspect these example forms to see the HTML markup recommended.</p>
+      </div>
+      <form class='styleguide-form styleguide-max-width' style='background: #fafafa'>
+        <label class='column-row'>
+          <div class='column one-fourth'>
+            <div class='label'>Text input</div>
+          </div>
+          <div class='column three-fourths'>
+            <input placeholder='Placeholder text' type='text' class='full-width' />
+            <div class='note'>Example of a note below text input.</div>
+          </div>
+        </label>
+        <label class='column-row has-error'>
+          <div class='column one-fourth'>
+            <div class='label'>Text input with error</div>
+          </div>
+          <div class='column three-fourths'>
+            <input type='text' class='full-width' />
+            <div class='note'>Description of the error.</div>
+          </div>
+        </label>
+        <div class='column-row'>
+          <div class='column full'>
+            <div class='button-row align-left'>
+              <button class="is-ghost">Cancel</button>
+              <button>Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Select box plugins</h2>
+
+        <p>Basic implementations of chosen.js and select2.js select box plugins.</p>
+
+        <form>
+          <div class='column-row'>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Chosen basic example</div>
+                <select class='chosen-select'>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </label>
+            </div>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Chosen with option group</div>
+                <select class='chosen-select'>
+                  <optgroup label='Option set A'>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </optgroup>
+                  <optgroup label='Option set B'>
+                    <option>Option I</option>
+                    <option>Option II</option>
+                    <option>Option III</option>
+                  </optgroup>
+                  <option>Option Z</option>
+                </select>
+              </label>
+            </div>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Chosen with groups and multiselect</div>
+                <select class='chosen-select' multiple>
+                  <optgroup label='Option set A'>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </optgroup>
+                  <optgroup label='Option set B'>
+                    <option>Option I</option>
+                    <option>Option II</option>
+                    <option>Option III</option>
+                  </optgroup>
+                  <option>Option Z</option>
+                </select>
+              </label>
+            </div>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Text input next to chosen</div>
+                <input class='full-width' type='text' value='Text input next to chosen' />
+              </label>
+            </div>
+          </div>
+          <div class='column-row'>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Select2 basic example</div>
+                <select class='select2-select'>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </label>
+            </div>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Select2 with option group</div>
+                <select class='select2-select'>
+                  <optgroup label='Option set A'>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </optgroup>
+                  <optgroup label='Option set B'>
+                    <option>Option I</option>
+                    <option>Option II</option>
+                    <option>Option III</option>
+                  </optgroup>
+                  <option>Option Z</option>
+                </select>
+              </label>
+            </div>
+            <div class='column one-fourth'>
+              <label>
+                <div class='label'>Text input next to select2</div>
+                <input class='full-width' type='text' value='Text input next to select2' />
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <a name='viewports'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Viewports</h2>
+
+        <p>Inside <code>config/viewports</code> there is a map containing
+        information about the current viewport set, and some helper shorthand
+        functions: <code>above()</code>, <code>below()</code>, and <code>between()</code> which simply abstract away media query syntax into something more readable. There is also a <code>v()</code> function, which looks up a viewport from the viewport map.</p>
+
+        <p>Your current active viewport is just above the "<span class='viewport-current'></span>" viewport. To target this size using the shorthand functions, you would write <code>@include above(v('<span class='viewport-current'></span>'))</code>.</p>
+
+        <p>Here is the current list of viewports:</p>
+
+        <table class='styleguide-max-width styleguide-viewports'>
+          <thead>
+            <tr>
+              <th>Viewport name</th>
+              <th>Sass lookup</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+  <a name='padding-and-margins'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Margin and padding</h2>
+
+        <p>Generally, elements should have an appropriate amount of space in between each other by default. However, utility classes exist to set margin/padding on a per-element basis without writing custom CSS rules for a simple margin fix.</p>
+
+        <p>For example, applying the class <code>.mb-2</code> to an element will give it a bottom margin of increment "2" (this is the <code>$baseline</code> variable multiplied by 2 or <code>bl(2)</code>). Steps exist at 0.25 increments between 0 and 3 for all directions of margin and padding using this syntax.<p>
+
+        <p>Here are some further examples:</p>
+
+        <table class='styleguide-max-width'>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <code>.mb-0</code>
+              </td>
+              <td>
+                Remove all bottom margin.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.pt-2_75</code>
+              </td>
+              <td>
+                Set top padding to <code>bl(2.75)</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mr-0_5</code>
+              </td>
+              <td>
+                Set right margin to <code>bl(0.5)</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.p-3</code>
+              </td>
+              <td>
+                Set all directions of padding to <code>bl(3)</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.m-0</code>
+              </td>
+              <td>
+                Remove all directions of margin.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class='styleguide-note padded-box padded-box-grey-9 styleguide-max-width'>
+          <p class='text-small mb-0'><strong>On single-utility classes</strong></p>
+          <p class='text-small'>16x24 does not include a full complement of "atomic" or single-utility classes in the vein of frameworks such as <a href="http://tachyons.io">Tachyons</a> or <a href="https://tailwindcss.com/docs/what-is-tailwind/">Tailwind</a>. Margin and padding are included by default because it is a particulary common use case, and abstracting an inline margin style such as <code>style="margin-bottom: 12px"</code> into a CSS class such as <code>.mb-0_5</code> has real value: the margin changes as the root unit (<code>$baseline</code>) changes. Adding a full suite of single-utility classes for borders, box-shadows, position, is outside the scope of what 16x24 tries to achieve, but you will find some basic single-utility classes for text sizing/decoration are included in addition to these shorthand margin utilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a name='columns'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Columns</h2>
+
+        <p>Percentage based column system using floats. Supports any division of
+        columns from 1/12 to 1/2. Wrap columns in a <code>.column-row</code>.
+        Syntax for individual columns is natural and readable. Gutters can be set 
+        using CSS classes, or manually with the <code>make-gutters</code> mixin.
+        Some basic styling for making this a responsive system exists, but each
+        layout is different and should be tweaked accordingly (do this globally
+        within <code>reset/layout</code>, or at the level of individual
+        modules).</p>
+
+        <div class='styleguide-columns'>
+          <div class='column-row'>
+            <div class='column one-half'>
+              <code>.column.one-half</code>
+            </div>
+            <div class='column one-half'>
+              <code>.column.one-half</code>
+            </div>
+          </div>
+          <div class='column-row'>
+            <div class='column one-third'>
+              <code>.column.one-third</code>
+            </div>
+            <div class='column two-thirds'>
+              <code>.column.two-thirds</code>
+            </div>
+          </div>
+          <div class='column-row'>
+            <div class='column one-fourth'>
+              <code>.column.one-fourth</code>
+            </div>
+            <div class='column one-fourth'>
+              <code>.column.one-fourth</code>
+            </div>
+            <div class='column one-fourth'>
+              <code>.column.one-fourth</code>
+            </div>
+            <div class='column one-fourth'>
+              <code>.column.one-fourth</code>
+            </div>
+          </div>
+          <div class='column-row'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+          <h3>Gutter options</h3>
+          <code>.column-row.no-gutter</code>
+          <div class='column-row no-gutter'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+          <code>.column-row.less-gutter</code>
+          <div class='column-row less-gutter'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+          <code>.column-row</code>
+          <div class='column-row'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+          <code>.column-row.more-gutter</code>
+          <div class='column-row more-gutter'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+          <code>.column-row.max-gutter</code>
+          <div class='column-row max-gutter'>
+            <div class='column two-fifths'>
+              <code>.column.two-fifths</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+            <div class='column one-fifth'>
+              <code>.column.one-fifth</code>
+            </div>
+          </div>
+
+          <hr />
+
+          <h3>Using flexbox</h3>
+          <p>Columns can use the <code>.flex-row</code> class to use flexbox rather than the default floated layout. By default this will allow for columns that are vertically aligned with each other.</p>
+
+          <code>.column-row.flex-row</code>
+          <div class='column-row flex-row'>
+            <div class='column one-half'>
+              <code>.column.one-half (taller height)</code>
+            </div>
+            <div class='column one-half'>
+              <code>.column.one-half</code>
+            </div>
+          </div>
+
+          <hr />
+
+          <h3>Using CSS Grid (WIP)</h3>
+          <p>Columns can use the <code>.grid-row</code> class to use CSS Grid rather than the default floated layout. This requires using the "twelfths" fractions, the grid is 12 columns wide. By default this will allow for columns that are vertically aligned with each other.</p>
+
+          <p>Grid is implemented using the <code>@supports</code> media query and will fallback to a floated or flexbox layout if CSS Grid is not supported in your browser.</p>
+
+          <code>.column-row.grid-row</code>
+          <div class='column-row grid-row'>
+            <div class='column six-twelfths'>
+              <code>.column.six-twelfths</code>
+            </div>
+            <div class='column six-twelfths'>
+              <code>.column.six-twelfths</code>
+            </div>
+          </div>
+
+          <h4>More complex uses for CSS Grid</h4>
+
+          <p>Layouts that would require multiple nested column rows can be created on a single grid.</p>
+          <div class='column-row grid-row styleguide-grid-example'>
+            <div class='column six-twelfths grid-row-span-3'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column two-twelfths'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column two-twelfths'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column two-twelfths'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column six-twelfths'>
+              <div class='text-container'>
+                <p>Example of a custom layout using CSS Grid. Grids should be created on a per-project basis. There is a no all-encompassing framework included for creating grids, only a simple helper class to set basic defaults, and a suggested 12-column setup.</p>
+              </div>
+            </div>
+            <div class='column six-twelfths grid-row-span-2'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column three-twelfths'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+            <div class='column three-twelfths'>
+              <img src="//placehold.it/1000x250" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a name='burger'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Collapsing hamburger navigation</h2>
+
+        <p>This is an example module demonstrating a hamburger icon and attached
+        sidebar navigation. When your viewport is below a certain size, you will
+        see the hamburger icon: otherwise you see a plain navigation strip.</p>
+
+        <p>This is a basic implementation with animation, a sliding right nav,
+        and underlay. You will need to customize <code>global/collapsing-nav</code> 
+        with project-specific customizations you would like to make (for example
+        making the menu icon a fixed-position element).</p>
+
+        <p>To show the navigation, add the class <code>.collapsing-navigation-is-active</code>
+        to the <code>body</code> element. There is a small bit of javascript on this page to do
+        this for you, but you should customize this for your own project.</p>
+      </div>
+
+      <a href="#" class='hamburger-button'>
+        <div class='bar'><div></div></div>
+        <div class='bar'><div></div></div>
+        <div class='bar'><div></div></div>
+      </a>
+
+      <br />
+
+      <nav class='collapsing-navigation'>
+        <ul>
+          <li><a href="#">Example navigation item</a></li>
+          <li><a href="#">Example navigation</a></li>
+          <li><a href="#">Example item</a></li>
+          <li><a href="#">Navigation item</a></li>
+          <li><a href="#">Click me to go nowhere <span class='icon icon-world'></span></a></li>
+        </ul>
+      </nav>
+      <!-- Underlay to cover page content when nav is visible, can be anywhere in
+      the DOM -->
+      <div class='collapsing-navigation-underlay'></div>
+
+      <script>
+        document.querySelector('.hamburger-button').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.body.classList.toggle('collapsing-navigation-is-active');
+        });
+
+        document.querySelector('.collapsing-navigation-underlay').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.body.classList.toggle('collapsing-navigation-is-active');
+        });
+      </script>
+    </div>
+  </section>
+  <a name='modals'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Modals</h2>
+
+        <p>This is an example module demonstrating a modal component. Modal should
+        scroll when content is too tall for the the viewport height. This is
+        meant to be a basic implementation, you should customize <code>global/modals</code> 
+        on a per-project basis according to your needs.</p>
+
+        <p>To show the modal, add the class <code>.is-active</code>
+        to the <code>.modal-wrapper</code> element (in the DOM currently, it is
+        right below this paragraph). There is a small bit of javascript on this
+        page to do this for you, but you should customize this for your own
+        project.</p>
+      </div>
+
+      <div class='modal-wrapper' data-modal='example'>
+        <div class='modal-underlay' data-modaltoggle='example'></div>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h2>Modal title</h2>
+            <a href='#' class='modal-close' data-modaltoggle='example'>&times;</a>
+          </div>
+          <div class='modal-content-inner text-container'>
+            <form>
+              @include('styleguide/form.html')
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class='modal-wrapper' data-modal='example2'>
+        <div class='modal-underlay' data-modaltoggle='example2'></div>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h2>Modal title</h2>
+            <a href='#' class='modal-close' data-modaltoggle='example2'>&times;</a>
+          </div>
+          <div class='modal-content-inner text-container'>
+            <form>
+              @include('styleguide/kitchen-sink.html')
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-container">
+        <p>
+          <a href="#" class='button show-modal' data-modaltoggle='example'>Show modal with example form</a>
+          <a href="#" class='button show-modal' data-modaltoggle='example2'>Show scrolling modal</a>
+        </p>
+      </div>
+
+      <script>
+        var modalTriggers = document.querySelectorAll('[data-modaltoggle]');
+        for (var i = 0; i < modalTriggers.length; i++) {
+          modalTriggers[i].addEventListener('click', function() {
+            event.preventDefault();
+            document.querySelector('.modal-wrapper[data-modal="'+this.dataset.modaltoggle+'"]').classList.toggle('is-active');
+          });
+        }
+      </script>
+
+      <div class='styleguide-note padded-box padded-box-grey-9 styleguide-max-width'>
+        <p class='text-small mb-0'><strong>On JavaScript</strong></p>
+        <p class='text-small'>16x24 is largely JS-agnostic. The goal is only to provide readable classnames to toggle on and off with your preferred method of JS.</p>
+      </div>
+    </div>
+  </section>
+
+  <a name='modals'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Tooltips</h2>
+      </div>
+
+      <div class="text-container">
+        <p>
+          <div class='tooltip-container'>
+            <a href="#" class='button' data-tooltipposition='left' data-tooltiptoggle='example'>
+              Show tooltip (left position)
+            </a>
+            <div class='tooltip tooltip-left tooltip-grey-2 theme-dark'>
+              <div class='tooltip-inner'>
+                <h4 class='tooltip-header'>Tooltip header</h4>
+
+                <p class='text-small tooltip-description'>
+                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad ron paul minim veniam.
+                </p>
+
+                <div class='button-row align-right'>
+                  <a class='button is-ghost small button-white' href="#">Cancel</a>
+                  <a class='button button-error small' href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='tooltip-container'>
+            <a href="#" class='button' data-tooltipposition='top' data-tooltiptoggle='example'>
+              Show tooltip (top position)
+            </a>
+            <div class='tooltip tooltip-top tooltip-primary theme-dark'>
+              <div class='tooltip-inner'>
+                <h4 class='tooltip-header'>Tooltip header</h4>
+
+                <p class='text-small tooltip-description'>
+                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad ron paul minim veniam.
+                </p>
+
+                <div class='button-row align-right'>
+                  <a class='button is-ghost small button-white' href="#">Cancel</a>
+                  <a class='button button-error small' href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='tooltip-container'>
+            <a href="#" class='button' data-tooltipposition='bottom' data-tooltiptoggle='example'>
+              Show tooltip (bottom position)
+            </a>
+            <div class='tooltip tooltip-bottom tooltip-grey-9'>
+              <div class='tooltip-inner'>
+                <h4 class='tooltip-header'>Tooltip header</h4>
+
+                <p class='text-small tooltip-description'>
+                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad ron paul minim veniam.
+                </p>
+
+                <div class='button-row align-right'>
+                  <a class='button is-ghost small' href="#">Cancel</a>
+                  <a class='button button-error small' href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='tooltip-container'>
+            <a href="#" class='button' data-tooltipposition='right' data-tooltiptoggle='example'>
+              Show tooltip (right position)
+            </a>
+            <div class='tooltip tooltip-right tooltip-teal theme-dark'>
+              <div class='tooltip-inner'>
+                <h4 class='tooltip-header'>Tooltip header</h4>
+
+                <p class='text-small tooltip-description'>
+                  Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad ron paul minim veniam.
+                </p>
+
+                <div class='button-row align-right'>
+                  <a class='button is-ghost small button-white' href="#">Cancel</a>
+                  <a class='button button-error small' href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
+      </div>
+
+      <script>
+      </script>
+
+    </div>
+  </section>
+
+  <a name='padded-box'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Padded box</h2>
+        <p>This is a simple module for creating padded boxes around content.</p>
+      </div>
+
+      <div class='column-row max-gutter'>
+        <div class='column one-half'>
+          <div class='padded-box padded-box-grey-9 text-container'>
+
+            <h3>Grey box</h3>
+
+            <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+            in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+            sunt in culpa qui officia deserunt mollit anim id est
+            <a href="#">This is a link</a> laborum.</p>
+
+            <p><code>.padded-box.padded-box-grey-9</code></p>
+          </div>
+        </div>
+        <div class='column one-half'>
+          <div class='padded-box padded-box-primary theme-dark text-container'>
+
+            <h3>Primary color box</h3>
+
+            <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+            in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+            sunt in culpa qui officia deserunt mollit anim id est
+            <a href="#">This is a link</a> laborum.</p>
+
+            <p><code>.padded-box.padded-box-primary.theme-dark</code></p>
+          </div>
+        </div>
+      </div>
+      <div class='column-row max-gutter'>
+        <div class='column one-half'>
+          <div class='padded-box padded-box-grey-6 has-border text-container'>
+            <h3>Grey box with border</h3>
+
+            <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+            in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+            sunt in culpa qui officia deserunt mollit anim id est
+            <a href="#">This is a link</a> laborum.</p>
+
+            <p><code>.padded-box.padded-box-grey-6.has-border</code></p>
+          </div>
+        </div>
+        <div class='column one-half'>
+          <div class='padded-box padded-box-secondary has-border text-container'>
+            <h3>Secondary color box with border</h3>
+
+            <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+            in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+            sunt in culpa qui officia deserunt mollit anim id est
+            <a href="#">This is a link</a> laborum.</p>
+
+            <p><code>.padded-box.padded-box-secondary.has-border</code></p>
+          </div>
+        </div>
+      </div>
+
+      <div class='text-container'>
+        <p>This module can be purposed to create inline alerts, banners, etc.</p>
+      </div>
+
+      <div class='column-row max-gutter'>
+        <div class='column two-thirds'>
+          <div class='padded-box padded-box-error has-border text-container less-padding'>
+            <p class='text-error'><span class='icon icon-warning'></span> <strong>Error:</strong> Something went wrong.</p>
+          </div>
+
+          <div class='padded-box padded-box-success has-border text-container less-padding'>
+            <p class='text-success'><span class='icon icon-completed'></span> <strong>Success:</strong> Everything is working as intended.</p>
+          </div>
+        </div>
+        <div class='column one-third'>
+          <div class='padded-box padded-box-grey-9 text-container'>
+            <p>Are you sure you want to delete this?</p>
+
+            <div>
+              <a href="#" class='button button-error has-icon'><span class='icon icon-trash'></span> Delete</a>
+              <a href="#" class='button is-ghost grey-3-color'>Cancel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a name='blocks'></a>
+  <section class="block-wrap">
+    <div class="block-inner">
+      <div class="text-container">
+        <h2>Blocks</h2>
+        <p>Blocks are strips of content that run across the full width of the page, with an inner container at a default maximum width of <span class='container-width'></span> (configurable in <code>config/layout</code>). Every block has a <code>.block-wrap</code> surrounding a <code>.block-inner</code>. Options are available to control the padding and background colors of a block, or add photographic backgrounds and overlays.</p>
+
+        <table class='styleguide-max-width'>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <code>.block-$color</code>
+              </td>
+              <td>
+                Change block background color.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-{no,min,less,more,max}-padding</code>
+              </td>
+              <td>
+                Adjust vertical padding of block.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-{no,min,less,more,max}-top-padding</code>
+              </td>
+              <td>
+                Adjust top padding of block.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-{no,min,less,more,max}-bottom-padding</code>
+              </td>
+              <td>
+                Adjust bottom padding of block.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-narrow</code>
+              </td>
+              <td>
+                Use narrower content width inside block.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-photo-bg</code>
+              </td>
+              <td>
+                Use photographic background behind block.
+                <div class='text-small text-grey-6'>(Use style attribute to set image source).</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>.block-overlay</code>, <code>.block-overlay-light</code>
+              </td>
+              <td>
+                Display a shaded overlay behind block content.
+                <div class='text-small text-grey-6'>(Useful when dealing with photographic blocks).</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Below are some live examples of layouts composed with columns and blocks. You can inspect the examples here to see the markup and CSS used to compose these layouts.</p>
+      </div>
+    </div>
+  </section>
+  <div class='block-examples'>
+    <section class="block-wrap more-padding">
+      <div class="block-inner">
+        <div class="text-container">
+          <h2>Simple split column</h2>
+          <div class='column-row max-gutter'>
+            <div class='column one-half'>
+              <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+              in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+              sunt in culpa qui officia deserunt mollit anim id est
+              <a href="#">This is a link</a> laborum.</p>
+            </div>
+            <div class='column one-half'>
+              <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+              sunt in culpa qui officia deserunt mollit anim id est <a
+              href="#">This is a link</a> laborum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block-wrap less-padding block-grey-3 theme-dark">
+      <div class="block-inner">
+        <div class='column-row'>
+          <div class='column two-thirds text-container'>
+            <h3>Example CTA bar on dark background</h3>
+          </div>
+          <div class='column one-third'>
+            <a href="#" class='button large full'>Button</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block-wrap block-narrow more-padding block-grey-8">
+      <div class="block-inner">
+        <div class="text-container">
+          <h2>Narrow light grey block</h2>
+          <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+          consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+          in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+          sunt in culpa qui officia deserunt mollit anim id est
+          <a href="#">This is a link</a> laborum.</p>
+        </div>
+      </div>
+    </section>
+    <section class="block-wrap less-padding block-error theme-dark">
+      <div class="block-inner">
+        <p><span class='icon icon-warning'></span> Block with a color defined from semantic color map.</p>
+      </div>
+    </section>
+    <section class="block-wrap less-padding block-lavender">
+      <div class="block-inner">
+        <p><span class='icon icon-star'></span> Block with a color defined from base (non-semantic) color map.</p>
+      </div>
+    </section>
+    <section class="block-wrap block-primary theme-dark">
+      <div class="block-inner">
+        <div class="text-container">
+          <h2>Primary color split column</h2>
+          <div class='column-row max-gutter'>
+            <div class='column one-half'>
+              <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+              in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+              sunt in culpa qui officia deserunt mollit anim id est
+              <a href="#">This is a link</a> laborum.</p>
+            </div>
+            <div class='column one-half'>
+              <img alt='Placeholder image: 600x300 pixels' src="//placehold.it/600x300" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block-wrap block-photo-bg max-top-padding more-bottom-padding" style="background-position: right center; background-image: url(/assets/img/test-A.jpg)">
+      <div class="block-inner">
+        <div class="text-container">
+          <h2>All about Jens.</h2>
+          <div class='column-row'>
+            <div class='column one-half'>
+              <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad ron paul minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+              in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+              sunt in culpa qui officia deserunt mollit anim id est
+              <a href="#">This is a link</a> laborum.</p>
+
+              <p>Lorem ipsum dolor sit amet, <strong>This is bold</strong>
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis ron paul aute irure dolor in reprehenderit
+              in voluptate velit esse cillum ron paul dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat ron paul non proident,
+              sunt in culpa qui officia deserunt mollit anim id est
+              <a href="#">This is a link</a> laborum.</p>
+
+              <a href="#" class="button button-red has-icon">Send him a message <span class='icon icon-heart'></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block-wrap block-photo-bg block-overlay theme-dark more-padding" style="background-image: url(/assets/img/test-B.jpg)">
+      <div class="block-inner">
+        <div class="text-container">
+          <div class='column-row'>
+            <div class='column one-half push-one-half'>
+              <h2>Powerful magic</h2>
+
+              <form>
+                @include('styleguide/form.html')
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

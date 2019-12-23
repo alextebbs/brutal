@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    @include("head.html")
+  </head>
+  <body class='styleguide-nav-is-active'>
+
+    <div class='style-guide'>
+      @include("styleguide/styleguide.html")
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+
+    <script>
+      $(function() {
+        $('select.chosen-select').chosen({
+          width: '100%'
+        });
+      });
+
+      $(function() {
+        $('select.select2-select').select2({
+          // Options
+          width: '100%'
+        });
+      });
+
+      // Basic Scrollspy
+      (function() {
+        'use strict';
+
+        var section = document.querySelectorAll("a[name]");
+        var sections = {};
+        var i = 0;
+
+        Array.prototype.forEach.call(section, function(e) {
+          sections[e.name] = e.offsetTop;
+        });
+
+        window.onscroll = function() {
+          var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+          for (i in sections) {
+            if (sections[i] <= scrollPosition) {
+              document.querySelector('.styleguide-sidebar-nav .is-active').classList.remove('is-active');
+              document.querySelector('a[href*=' + i + ']').classList.add('is-active');
+            }
+          }
+        };
+      })();
+
+    </script>
+  </body>
+</html>

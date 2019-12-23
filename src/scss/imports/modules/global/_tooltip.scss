@@ -1,0 +1,126 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  --tooltip-color: #{grey(8)};
+
+  @each $name, $color in $merged-color-map {
+    &.tooltip-#{$name} {
+      --tooltip-color: #{$color};
+    }
+  }
+
+  @each $name, $grey in $default-grey-palette {
+    &.tooltip-grey-#{$name} {
+      --tooltip-color: #{$grey};
+    }
+  }
+
+  background: grey(8);
+  background: var(--tooltip-color);
+  width: 296px;
+  position: absolute;
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+
+  &.tooltip-top,
+  &.tooltip-bottom {
+    left: 50%;
+    transform: translateX(-50%);
+
+    .tooltip-inner:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.tooltip-left,
+  &.tooltip-right {
+    top: 50%;
+    transform: translateY(-50%);
+
+    .tooltip-inner:after {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.tooltip-top {
+    bottom: 100%;
+    margin-bottom: bl(0.5);
+
+    .tooltip-inner:after {
+      top: 100%;
+      border-top-color: grey(8);
+      border-top-color: var(--tooltip-color);
+    }
+  }
+
+  &.tooltip-bottom {
+    top: 100%;
+    margin-top: bl(0.5);
+
+    .tooltip-inner:after {
+      bottom: 100%;
+      border-bottom-color: grey(8);
+      border-bottom-color: var(--tooltip-color);
+    }
+  }
+
+  &.tooltip-left {
+    right: 100%;
+    margin-right: bl(0.5);
+
+    .tooltip-inner:after {
+      left: 100%;
+      border-left-color: grey(8);
+      border-left-color: var(--tooltip-color);
+    }
+  }
+
+  &.tooltip-right {
+    left: 100%;
+    margin-left: bl(0.5);
+
+    .tooltip-inner:after {
+      right: 100%;
+      border-right-color: grey(8);
+      border-right-color: var(--tooltip-color);
+    }
+  }
+
+  .tooltip-inner {
+    padding: bl(0.5);
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      border: bl(0.5) solid transparent;
+    }
+
+    .tooltip-header {
+      font-size: $fs;
+      line-height: bl(1);
+    }
+
+    .tooltip-header {
+      margin-bottom: bl(0.25);
+    }
+
+    p {
+      margin-bottom: bl(0.5);
+    }
+
+    .button-row {
+      @include all-button-types {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

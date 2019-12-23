@@ -1,0 +1,146 @@
+@mixin set-gutters($gutter: $gutter-width, $column-selector: ".column") {
+  margin-left: -($gutter / 2);
+  margin-right: -($gutter / 2);
+
+  & > #{$column-selector} {
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  }
+}
+
+@mixin make-columns($column-selector: ".column") {
+  @include clearfix;
+
+  // &:not(:last-child) {
+  //   margin-bottom: $bl;
+  // }
+
+  @at-root {
+    #{$column-selector} {
+      float: left;
+      margin-bottom: $bl;
+    }
+
+    .full {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  $fractions: (
+    half:       50%,
+    third:      33.333333%,
+    fourth:     25%,
+    fifth:      20%,
+    sixth:      16.666667%,
+    seventh:    14.285714286%,
+    eighth:     12.5%,
+    ninth:      11.111111111%,
+    tenth:      10%,
+    eleventh:   9.090909091%,
+    twelfth:    8.333333333%
+  );
+
+  $numbers: one two three four five six seven eight nine ten eleven;
+
+  @each $fraction, $width in $fractions {
+    $index: index($fractions, $fraction $width);
+
+    @while $index > 0 {
+      $plural: $fraction + 's';
+
+      @if $index == 1 {
+        $plural: $fraction;
+      }
+
+      $base-selector: nth($numbers, $index) + '-' + $plural;
+
+      @at-root {
+        .#{$base-selector}      { width: ($width * $index);        }
+
+        @if q('settings.enable-push-columns') == true {
+          .push-#{$base-selector} { margin-left: ($width * $index);  }
+        }
+
+        @if q('settings.enable-pull-columns') == true {
+          .pull-#{$base-selector} { margin-right: ($width * $index); }
+        }
+
+        // @if ($ENABLE-GRID-COLUMNS) {
+        //   @supports(display: grid) {
+        //     .grid-row .#{$base-selector} {
+        //       width: auto;
+        //       grid-column: span $index;
+        //     }
+        //   }
+        // }
+      }
+
+      $index: $index - 1;
+    }
+  }
+
+  // Make responsive classes (needs to show up later in CSS order)
+  @if q('settings.enable-rwd-columns') == true {
+    @each $fraction, $width in $fractions {
+      $index: index($fractions, $fraction $width);
+
+      @while $index > 0 {
+        $plural: $fraction + 's';
+
+        @if $index == 1 {
+          $plural: $fraction;
+        }
+
+        $base-selector: nth($numbers, $index) + '-' + $plural;
+
+        @at-root {
+          @each $viewport, $viewport-width in $viewports {
+            @include below($viewport-width) {
+              .below-#{$viewport}-#{$base-selector} { width: $width * $index }
+
+              // @if ($ENABLE-GRID-COLUMNS) {
+              //   @supports(display: grid) {
+              //     .grid-row .below-#{$viewport}-#{$base-selector} { grid-column: span $index };
+              //   }
+              // }
+
+              @if q('settings.enable-rwd-push-columns') == true {
+                .below-#{$viewport}-push-#{$base-selector} { margin-left: ($width * $index);  }
+              }
+
+              @if q('settings.enable-rwd-pull-columns') == true {
+                .below-#{$viewport}-pull-#{$base-selector} { margin-right: ($width * $index); }
+              }
+            }
+          }
+        }
+
+        $index: $index - 1;
+      }
+    }
+
+    @each $viewport, $viewport-width in $viewports {
+      @include below($viewport-width) {
+        .below-#{$viewport}-full {
+          width: 100%;
+          margin-left: 0px !important;
+          margin-right: 0px !important;
+        }
+
+        @if q('settings.enable-rwd-push-columns') == true {
+          .below-#{$viewport}-no-push {
+            margin-left: 0px !important;
+          }
+        }
+
+        @if q('settings.enable-rwd-pull-columns') == true {
+          .below-#{$viewport}-no-pull {
+            margin-right: 0px !important;
+          }
+        }
+      }
+    }
+  }
+}

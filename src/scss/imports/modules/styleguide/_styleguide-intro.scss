@@ -1,0 +1,88 @@
+body {
+  background: #000;
+}
+
+.panel {
+  margin: 0px auto;
+  margin-top: bl(1);
+  max-width: 368px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  h1 {
+    display: flex;
+    font-size: bl(0.6);
+    line-height: bl(0.8);
+    color: #999;
+    font-family: 'Inconsolata', monospace;
+
+    div {
+      width: 25%;
+      position: relative;
+      text-align: center;
+
+      &:not(:last-child) {
+        &:after {
+          content: ':';
+          position: absolute;
+          left: 100%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-80%);
+          font-size: bl(1.2);
+          color: #666;
+        }
+      }
+
+      span {
+        color: #fff;
+        display: block;
+        font-size: bl(2.2);
+        line-height: bl(2.7);
+        font-family: 'Inconsolata', monospace;
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: bl(0.5);
+
+    span {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  p {
+    font-size: bl(0.8);
+    line-height: bl(1.2);
+    color: #999;
+    margin-top: bl(3);
+    // font-family: 'Inconsolata', monospace;
+    // text-align: justify;
+    // hyphens: auto;
+    // word-break: break-all;
+  }
+
+  button {
+    margin: 0px auto;
+    margin-top: bl(1.5);
+    border-radius: 3px;
+    background: #fff;
+    color: #000;
+    margin-bottom: bl(1.5);
+  }
+}
+
+.banner-wrap {
+  max-width: 420px;
+  margin: 0px auto;
+}
+
+.banner {
+  padding-top: 50%;
+  background: #444;
+  background-image: url(/assets/img/landon.jpg);
+  background-size: cover;
+  background-position: center center;
+}

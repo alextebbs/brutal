@@ -1,0 +1,30 @@
+@mixin grid($columns: 12, $gutter: bl(1.5)) {
+
+  // Fallback?
+
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-column-gap: $gutter;
+    grid-row-gap: $gutter;
+
+    @for $i from 1 through $columns {
+      & > .span-#{$i} {
+        grid-column-start: auto;
+        grid-column-end: span $i;
+      }
+
+      @each $viewport, $viewport-width in $viewports {
+        @include below($viewport-width) {
+          & > .v-#{$viewport}-span-#{$i} {
+            grid-column: span $i;
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid-row {
+  @include grid($columns: 12, $gutter: bl(1.5));
+}

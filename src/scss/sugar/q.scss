@@ -1,0 +1,14 @@
+@use "sass:meta";
+@use "sass:string";
+
+@function q($path) {
+  $value: get($path);
+
+  // Check for special baseline reference.
+  @if meta.type-of($value) == string and string.index($value, '_bl') == 1 {
+    @return number(string.slice($value, 4)) * q('typography.line-height');
+  } @else {
+    @return $value;
+  }
+}
+

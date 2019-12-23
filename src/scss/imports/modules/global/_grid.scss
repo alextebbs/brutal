@@ -1,0 +1,155 @@
+.grid-default {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: bl(1);
+
+  .grid-example-item {
+    min-height: 150px;
+    background: #eee;
+    grid-column: span 2;
+  }
+}
+
+.grid-row-span-2 {
+  grid-row: span 2;
+}
+
+.grid-row-span-3 {
+  grid-row: span 3;
+}
+
+.grid-row-span-4 {
+  grid-row: span 4;
+}
+
+$gg-area-1: 100% * ($aspect-golden - 1);
+$gg-area-2: ($gg-area-1 / $aspect-golden) / $aspect-golden;
+$gg-area-3: ($gg-area-2 / $aspect-golden) / $aspect-golden;
+$gg-area-4: ($gg-area-3 / $aspect-golden);
+
+$gg-width: $gg-area-1 + $gg-area-2 + $gg-area-3 + $gg-area-4;
+$gg-height: $gg-width / $aspect-golden;
+
+.golden-grid-wrapper {
+  width: $gg-width;
+  padding-top: $gg-height;
+  position: relative;
+}
+
+.golden-grid {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: grid;
+  grid:
+        [row1-start] "A B B B" $gg-area-1 [row1-end]
+        [row3-start] "A E F C" $gg-area-3 [row3-end]
+        [row2-start] "A E G C" $gg-area-4 [row2-end]
+        [row4-start] "A D D C" $gg-area-2 [row4-end]
+        / $gg-area-1 $gg-area-3 $gg-area-4 $gg-area-2
+}
+
+.golden-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  background-image: radial-gradient(circle farthest-side at 50% 50%, transparent calc(100% - 2px), currentColor 0%, transparent);
+  background-size: 200% 200%;
+
+  &:nth-of-type(4n) { background-position: 0% 0; }
+  &:nth-of-type(4n + 2) { background-position: 100% 0; }
+  &:nth-of-type(4n + 3) { background-position: 100% 100%; }
+  &:nth-of-type(4n + 4) { background-position: 0% 100%; }
+
+  &.a {
+    grid-area: A;
+    background-color: grey(8);
+  }
+
+  &.b {
+    grid-area: B;
+    background-color: grey(7);
+  }
+
+  &.c {
+    grid-area: C;
+    background-color: grey(6);
+  }
+
+  &.d {
+    grid-area: D;
+    background-color: grey(5);
+  }
+
+  &.e {
+    grid-area: E;
+    color: grey(8);
+    background-color: grey(4);
+  }
+
+  &.f {
+    grid-area: F;
+    color: grey(8);
+    background-color: grey(3);
+  }
+
+  &.g {
+    grid-area: G;
+    color: #fff;
+    background-color: #fff;
+  }
+}
+
+.article-grid {
+  @include grid($gutter: bl(1));
+
+  .text-container & > * {
+    margin-bottom: 0px !important;
+  }
+
+  p {
+    grid-column: 5 / span 5;
+
+    @include below(v('large')) {
+      grid-column: 5 / -1;
+    }
+
+    @include below(v('small')) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  h2, figcaption {
+    grid-column: 1 / span 3;
+
+    @include below(v('medium')) {
+      grid-column: 1 / span 4;
+    }
+
+    @include below(v('small')) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  img {
+    grid-column: 1 / -1;
+  }
+
+  blockquote {
+    grid-column: 10 / -1;
+
+    @include below(v('large')) {
+      grid-column: 5 / -1;
+    }
+
+    @include below(v('small')) {
+      grid-column: 1 / -1;
+    }
+  }
+}

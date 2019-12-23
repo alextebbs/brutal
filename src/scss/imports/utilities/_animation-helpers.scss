@@ -1,0 +1,39 @@
+// Would you rather just define animations inline
+// and not bother with naming them?
+//
+// EXAMPLE USAGE
+//
+// .my-class {
+//   animation-duration: 0.2s;
+//   animation-timing-function: linear;
+//
+//   @include animation {
+//     0% {
+//       opacity: 0;
+//     }
+//
+//     100% {
+//       opacity: 1;
+//     }
+//   }
+// }
+//
+
+$_anim-increment: 0;
+
+@mixin animation {
+  $name: #{'anim-'+$_anim-increment};
+
+  // Define animation
+  @at-root {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+
+  // Link animation to selector
+  animation-name: $name;
+
+  // Increment animation number
+  $_anim-increment: $_anim-increment + 1 !global;
+};

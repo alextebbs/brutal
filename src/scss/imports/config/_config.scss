@@ -1,0 +1,137 @@
+// This shit doesn't really work yet
+
+$config: (
+  'typography': (
+    "font-size" : 16px,
+    "line-height" : 24px,
+    "base-font-stack" : "",
+    "alt-font-stack" : "",
+    "type-scale" : (
+
+    )
+  ),
+  'layout': (
+    "container-width" : "_bl50",
+    "gutter-width" : "_bl1.5"
+  ),
+  'colors': (
+    'palettes': (
+      'msft': (
+        'blue':    rgb(   0 , 120 , 212 ),
+        'green':   rgb(  16 , 124 ,  16 ),
+        'yellow':  rgb( 255 , 185 ,   0 ),
+        'red':     rgb( 216 ,  59 ,   1 ),
+        'pink':    rgb( 180 ,   0 , 158 ),
+        'purple':  rgb( 134 ,  37 , 197 ),
+      ),
+      'gd': (
+        'green':   #00a63f,
+        'blue':    #1976d2,
+        'pink':    #e20087,
+        'purple':  #9e42b5,
+        'yellow':  #fedc45,
+        'red':     #db1802,
+      ),
+      'eas': (
+        'green':      #A7d31E,
+        'blue':       #80D1E4,
+        'purple':     #93004A,
+        'dark-blue':  #112548,
+        'red':        #DE1C31,
+      ),
+      'custom': (
+        'green':   #2ecc71,
+        'blue':    #3498db,
+        'pink':    #ff88f3,
+        'purple':  #8e44ad,
+        'yellow':  #f1c40f,
+        'red':     #e74c3c,
+        'teal':    #00c59f,
+        'orange':  orange,
+      ),
+    ),
+    'default-palette' : 'custom',
+    'semantic-map' : (
+      'primary':   'blue',
+      'secondary': 'purple',
+      'error':     'red',
+      'warning':   'orange',
+      'success':   'green',
+      'highlight': 'yellow',
+    ),
+  ),
+  'viewports': (
+    "smaller": 460px,
+    "small": 670px,
+    "medium": 860px,
+    "large": 1024px,
+    "larger": 1340px,
+    "largest": 1840px,
+  ),
+  'settings': (
+    // Enables responsive column system.
+    // Columns can get assigned classes like '.one-fourth.below-small-one-half',
+    // making a column which spans one-fourth of the row until the browser viewport
+    // goes below the 'small' viewport, and they will switch to one-half.
+    //
+    // Another example: '.one-half.below-medium-full' will create a column which
+    // spans one-half of the row and then occupies the full width of the row below
+    // the 'medium' viewport.
+    // Saves ~70KB if disabled
+    "enable-rwd-columns" : true,
+
+    // Enables 'pull' column system.
+    // Columns can get assigned classes like '.one-fourth.pull-one-fourth' to give
+    // one-fourth empty spacing after the column.
+    // Saves ~3KB if disabled
+    "enable-pull-columns" : true,
+
+    // Enables 'push' column system.
+    // Columns can get assigned classes like '.one-fourth.push-one-fourth' to give
+    // one-fourth empty spacing before the column.
+    // Saves ~3KB if disabled
+    "enable-push-columns" : true,
+
+    // Enables 'push' column system across responsive viewports..
+    // Example classList
+    // '.one-fourth.push-one-fourth.below-small-one-half.below-small-no-push
+    // Saves ~20KB if disabled
+    "enable-rwd-push-columns" : true,
+
+    // Enables 'pull' column system across responsive viewports..
+    // Example classList
+    // '.one-fourth.pull-one-fourth.below-small-one-half.below-small-no-pull
+    // Saves ~20KB if disabled
+    "enable-rwd-pull-columns" : true,
+
+    // Enables CSS grid column system (WIP)
+    // Column rows can get assigned the 'grid-row' class to have columns within
+    // them layout using CSS grid.
+    // Saves ~6KB if disabled
+    "enable-grid-columns" : true,
+
+    // Enables button style for bordered buttons
+    // Saves ~15KB if disabled
+    "enable-border-buttons" : true,
+
+    // Enables button style for 'ghost' buttons
+    // Ghost buttons are buttons with a transparent background
+    // Saves ~30KB if disabled
+    "enable-ghost-buttons" : true,
+
+    // Enables button selector map
+    // This option lets you compose 'buttons' using the '.button' class, but also
+    // applies styles to 'button, input[type='submit'], input[type='button'], etc.
+    // Saves ~50KB if disabled.
+    "enable-button-selector-map" : true,
+
+    // Enable base color map
+    // By default a base color map is present such that during prototyping, any
+    // almost any color can be used when composing classnames for blocks, buttons,
+    // etc, without having to even define the color previously. Disabling this will 
+    // help trim down on file size, but all colors used will need to get explicitly
+    // defined elsewhere in config/colors.scss.
+    // Saves ~20KB if disabled.
+    "enable-base-color-map" : true
+  )
+);
