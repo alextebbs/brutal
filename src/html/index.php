@@ -132,8 +132,6 @@
             </h1>
             <h2 class='type-scale-2'>Since the last <span class='text-grey-5'>Brutal For Landon</span>.</h2>
 
-            <h2 class='type-scale-4'><span class='icon icon-arrow-down'></span></h2>
-
           </div>
           <div class='actions'>
             <h2 class='type-scale-2'>Landon has been brutal <span class='type-scale-2' id='times'></span> times.</h2>
