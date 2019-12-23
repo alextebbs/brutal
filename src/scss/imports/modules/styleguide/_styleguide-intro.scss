@@ -5,6 +5,7 @@ body {
 
 .plane {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   max-width: 420px;
   margin: 0px auto;
   display: flex;
