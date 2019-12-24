@@ -143,14 +143,14 @@
             <h2 class='type-scale-2'>Total BFL count: <span class='type-scale-2' id='times'></span></h2>
 
             <div class='text-center'>
-              <button class='button-white show-confirm'>Brutal for Landon!</button>
+              <button class='button-white show-confirm'>Tap to add BFL</button>
             </div>
 
             <div class='action-confirm'>
               <h2 class='type-scale-2'>Are you sure?</h2>
 
               <div class='button-row text-center'>
-                <button class='button-grey-2 hide-confirm'>No, he's fine.</button>
+                <button class='button-grey-2 hide-confirm'>No, he's fine</button>
                 <button class='button-primary trigger-brutal hide-confirm' value='increment'>Yes, BFL</button>
               </div>
             </div>
