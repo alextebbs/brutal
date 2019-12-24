@@ -140,17 +140,17 @@
 
           </div>
           <div class='actions'>
-            <h2 class='type-scale-2'>Landon has been brutal <span class='type-scale-2' id='times'></span> times.</h2>
+            <h2 class='type-scale-2'>Total BFL count: <span class='type-scale-2' id='times'></span></h2>
 
             <div class='text-center'>
-              <button class='button-white show-confirm'>Landon is being brutal</button>
+              <button class='button-white show-confirm'>Brutal for Landon!</button>
             </div>
 
             <div class='action-confirm'>
               <h2 class='type-scale-2'>Are you sure?</h2>
 
               <div class='button-row text-center'>
-                <button class='button-grey-2 hide-confirm'>No, he's ok</button>
+                <button class='button-grey-2 hide-confirm'>No, he's fine.</button>
                 <button class='button-primary trigger-brutal hide-confirm' value='increment'>Yes, BFL</button>
               </div>
             </div>
